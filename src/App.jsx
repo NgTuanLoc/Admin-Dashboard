@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { FiSettings } from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
@@ -25,7 +26,7 @@ import {
 import './app.css';
 
 function App() {
-	const activeMenu = true;
+	const { activeMenu } = useSelector((store) => store.admin);
 	return (
 		<div>
 			<Router>
@@ -52,7 +53,7 @@ function App() {
 							activeMenu ? 'md:ml-72' : 'flex-2'
 						}`}>
 						<div className='fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full'>
-							Navbar
+							<Navbar />
 						</div>
 					</div>
 

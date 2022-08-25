@@ -1,12 +1,15 @@
 import { Link, NavLink } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import { SiShopware } from 'react-icons/si';
 import { MdOutlineCancel } from 'react-icons/md';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import { links } from '../data/dummy';
+import { closeMenu } from '../features/adminSlice';
 
 const Sidebar = () => {
-	const activeMenu = true;
+	const { activeMenu } = useSelector((store) => store.admin);
+	const dispatch = useDispatch();
 	const activeLink =
 		'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md m-2';
 	const normalLink =
@@ -25,14 +28,16 @@ const Sidebar = () => {
 						<TooltipComponent content='Menu' position='BottomCenter'>
 							<button
 								type='button'
-								onClick={() => {}}
+								onClick={() => {
+									dispatch(closeMenu());
+								}}
 								className='text-xl rounded-full p-3 hover:bg-light-gray mt-4 block md:hidden'>
 								<MdOutlineCancel />
 							</button>
 						</TooltipComponent>
 					</div>
 
-					<div className='mt-10'>
+					<div className='mt-10 pr-3'>
 						{links.map((item) => {
 							return (
 								<div key={item.title}>

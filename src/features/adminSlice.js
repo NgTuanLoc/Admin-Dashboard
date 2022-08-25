@@ -18,6 +18,12 @@ const adminSlice = createSlice({
 	name: 'admin',
 	initialState,
 	reducers: {
+		closeMenu: (state) => {
+			state.activeMenu = false;
+		},
+		toggleMenu: (state) => {
+			state.activeMenu = !state.activeMenu;
+		},
 		setMode: (state, { payload }) => {
 			state.currentMode = payload;
 			localStorage.setItem('themeMode', payload);
@@ -34,5 +40,8 @@ const adminSlice = createSlice({
 		},
 	},
 });
+
+export const { setColor, setMode, handleClick, closeMenu, toggleMenu } =
+	adminSlice.actions;
 
 export default adminSlice.reducer;
