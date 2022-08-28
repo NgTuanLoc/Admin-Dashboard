@@ -17,7 +17,15 @@ const SparkLine = ({ id, height, width, color, data, type, currentColor }) => {
 			dataSource={data}
 			type={type}
 			xName='x'
-			yName='y'>
+			yName='yval'
+			tooltipSettings={{
+				visible: true,
+				// eslint-disable-next-line no-template-curly-in-string
+				format: '${x} : data ${yval}',
+				trackLineSettings: {
+					visible: true,
+				},
+			}}>
 			<Inject services={[SparklineTooltip]} />
 		</SparklineComponent>
 	);
