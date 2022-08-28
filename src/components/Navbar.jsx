@@ -18,7 +18,7 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => {
 				type='button'
 				onClick={customFunc}
 				style={{ color }}
-				className='relative text-xl rounded-full p-3 hover:bg-light-gray mx-3'>
+				className='relative text-3xl rounded-full p-3 hover:bg-light-gray mx-3'>
 				<span
 					style={{ background: dotColor }}
 					className='absolute inline-flex rounded-full h-2 w-2 right-2 top-2'
@@ -68,7 +68,7 @@ const Navbar = () => {
 						className='flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg'
 						onClick={() => {}}>
 						<img
-							className='rounded-full w-8 h-8'
+							className='rounded-full w-12 h-12'
 							src={avatar}
 							alt='user-profile'
 						/>
